@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="High-Quality and Customizable 3D Human Avatar Generation">
+  <meta name="keywords" content="AvatarBooth, Text-to-3D">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AvatarBooth: High-Quality and Customizable 3D Human Avatar Generation</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://github.com/zeng-yifei">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://github.com/zeng-yifei/AvatarBooth">
+            AvatarBooth
+          </a>
+          <a class="navbar-item" href="https://github.com/hongfz16/AvatarCLIP">
+            AvatarCLIP
+          </a>
+          <a class="navbar-item" href="https://github.com/ashawkey/stable-dreamfusion">
+            Stable-DreamFusion
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+<!--say sth-->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">AvatarBooth: High-Quality and Customizable 3D Human Avatar Generation</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+            <a href="https://github.com/zeng-yifei">Yifei Zeng</a><sup>1</sup>,</span>
+              <span class="author-block">
+              <a href="https://github.com/YuanxunLu">Yuanxun Lu</a><sup>1</sup>,</span>
+            <span class="author-block">
+                <a href="https://github.com/jixinya">Xinya Ji</a><sup>1</sup>,</span>
+            <span class="author-block">
+                <a href="https://yoyo000.github.io/">Yao Yao</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="http://zhuhao.cc/">Hao Zhu</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://cite.nju.edu.cn/People/Faculty/20190621/i5054.html">Xun Cao</a><sup>1</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>Nanjing University </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. TODO -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2306.09864.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2306.09864"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. TODO-->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=UU3pa4CCfeY"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/zeng-yifei/AvatarBooth"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code(To be released)</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">AvatarBooth</span> is a text-to-3D model. It creates an animatable 3D model with your word description. 
+          Also, it can generate customized model with 4~6 photos from your phone or a character design generated from diffusion model. 
+          You can play with any magic words to change your final character result with fixed identity.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/obama.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/hilary.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/kobe.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/messi.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/ronald.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/elsa.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/luke.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/superman.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/aragon.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/deadpool.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/doctor.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/godfather.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce AvatarBooth, a novel method for generating high-quality 3D avatars using text prompts or specific images.
+             Unlike previous approaches that can only synthesize avatars based on simple text descriptions, 
+             our method enables the creation of personalized avatars from casually captured face or body images, 
+             while still supporting text-based model generation and editing. 
+             Our key contribution is the precise avatar generation control by using dual fine-tuned diffusion models separately 
+             for the human face and body. This enables us to capture intricate details of facial appearance,
+            clothing, and accessories, resulting in highly realistic avatar generations.
+          </p>
+          <p>
+            Furthermore, we introduce pose-consistent constraint to the optimization process to enhance the multi-view consistency 
+            of synthesized head images from the diffusion model and thus eliminate interference from 
+            uncontrolled human poses. In addition, we present a multi-resolution rendering strategy that 
+            facilitates coarse-to-fine supervision of 3D avatar generation, thereby enhancing the performance 
+            of the proposed system. The resulting avatar model can be further edited using additional text 
+            descriptions and driven by motion sequences.
+          </p>
+          <p>
+            Experiments show that <span class="dnerf">AvatarBooth</span> outperforms previous text-to-3D methods in terms of
+             rendering and geometric quality from either text prompts or specific images. 
+             The code and model will be made available upon publication.
+        
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!--TODO: Paper video. -->
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/1UcwHPXNK8E"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-3">Text-to-Avatar</h2>
+          <p>
+            Using <i>AvatarBooth</i> you can create high-quality avatar through a few words. 
+            The model both have a satisfying appearance and a detailed mesh.
+          </p>
+          <img src="./static/images/exhibit.jpg" alt="Text-to-Avatar">
+        </div>
+      </div>
+
+
+
+      
+      </div>
+    </div>
+    <!--/ Matting. -->
+    <div class="container is-max-desktop">
+
+      <div class="columns is-centered">
+  
+
+  
+        <!-- Visual Effects. -->
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-3">Character Personalization</h2>
+            <p>
+              Another <i>AvatarBooth</i> application is that you can create your own model using your personal photos, including selfies and clothes photos. 
+              You can add any accessories or effect to your model output using simply a word description.
+            </p>
+            <img src="./static/images/exhibit_mode23.jpg" alt="Character Personalization">
+          </div>
+        </div>
+        <!--/ Visual Effects. -->
+  
+        
+        </div>
+      </div>
+
+    <!-- Animation. -->
+    <div class="container is-max-desktop">
+      <div class="column is-centered">
+        
+        <h2 class="title is-3">Application</h2>
+
+
+        <h3 class="title is-4">FBX animation</h3>
+        <div class="content has-text-justified">
+          <p>
+            We can also animate the model by turning it into a FBX file.
+            Feel free to play with the model.
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+  </div>
+</section>  
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <video id="messi" autoplay controls muted loop playsinline>
+            <source src="./static/videos/messi_kicks.mp4"
+                    type="video/mp4">
+        </video>
+      </div>
+      <!--/ Visual Effects. -->
+      <div class="column">
+        <video id="trump" autoplay controls muted loop playsinline>
+            <source src="./static/videos/trump_dances.mp4"
+                    type="video/mp4">
+        </video>
+      </div>
+      <!-- Matting. -->
+
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://avatar-craft.github.io/">AvatarCraft</a> also uses NeuS for 3D representation. 
+          </p>
+
+          <p>
+            Some works model avatars with Latent-NeRF, such as <a href="https://yukangcao.github.io/DreamAvatar/">DreamAvatar</a>
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+<!--/TODO: insert citation. -->
+<!--TODO: modeify bibtex-->
+
+<section class="section" id="BibTeX">
+
+  <div class="container is-max-desktop content">
+
+  <h2 class="title">BibTeX</h2>
+
+    <pre><code>@inproceedings{Zeng2023AvatarBoothHA,
+  title={AvatarBooth: High-Quality and Customizable 3D Human Avatar Generation},
+  author={Yifei Zeng and Yuanxun Lu and Xinya Ji and Yao Yao and Hao Zhu and Xun Cao},
+  year={2023}
+}</code></pre>
+
+ </div>
+
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/zeng-yifei" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            Thanks for Nerfie for release their project page code. We borrow their <a
+              href="https://github.com/nerfies/nerfies.github.io">website code</a> to construct this website.
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
