@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="description"
-        content="High-Quality and Customizable 3D Human Avatar Generation">
-  <meta name="keywords" content="AvatarBooth, Text-to-3D">
+        content="Spatial-Temporal Anchored Generative 4D Gaussians">
+  <meta name="keywords" content="Stag4D, 4D generation">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AvatarBooth: High-Quality and Customizable 3D Human Avatar Generation</title>
 
@@ -86,32 +86,40 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">AvatarBooth: High-Quality and Customizable 3D Human Avatar Generation</h1>
+          <h1 class="title is-1 publication-title">STAG4D: Spatial-Temporal Anchored Generative 4D Gaussians</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
             <a href="https://github.com/zeng-yifei">Yifei Zeng</a><sup>1</sup>,</span>
               <span class="author-block">
+              <a href="https://github.com/yanqinJiang">Yanqin Jiang</a><sup>2</sup>,</span>
+              <span class="author-block">
+                <a href="https://sites.google.com/site/zhusiyucs/home/">Siyu Zhu</a><sup>3</sup>,</span>
+                <span class="author-block">
               <a href="https://github.com/YuanxunLu">Yuanxun Lu</a><sup>1</sup>,</span>
-            <span class="author-block">
-                <a href="https://github.com/jixinya">Xinya Ji</a><sup>1</sup>,</span>
-            <span class="author-block">
-                <a href="https://yoyo000.github.io/">Yao Yao</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://linyou.github.io/">Youtian Lin</a><sup>1</sup>,</span>
             <span class="author-block">
               <a href="http://zhuhao.cc/">Hao Zhu</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://people.ucas.ac.cn/~huweiming">Weiming Hu</a><sup>2</sup>,</span>
             <span class="author-block">
               <a href="https://cite.nju.edu.cn/People/Faculty/20190621/i5054.html">Xun Cao</a><sup>1</sup>,
+              <span class="author-block">
+                <a href="https://yoyo000.github.io/">Yao Yao</a><sup>1</sup>,</span>
             </span>
           </div>
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>Nanjing University </span>
+            <span class="author-block"><sup>2</sup>CASIA </span>
+            <span class="author-block"><sup>3</sup>Fudan University </span>
           </div>
 
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. TODO -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2306.09864.pdf"
+                <a href="https://arxiv.org/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -120,7 +128,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2306.09864"
+                <a href="https://arxiv.org/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -130,7 +138,7 @@
               </span>
               <!-- Video Link. TODO-->
               <span class="link-block">
-                <a href="https://www.youtube.com/watch?v=UU3pa4CCfeY"
+                <a href="https://www.youtube.com/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-youtube"></i>
@@ -138,9 +146,9 @@
                   <span>Video</span>
                 </a>
               </span>
-              <!-- Code Link. -->
+              <!-- Code Link.  TODO-->
               <span class="link-block">
-                <a href="https://github.com/zeng-yifei/AvatarBooth"
+                <a href="https://github.com/"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
@@ -166,9 +174,9 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle has-text-centered">
-        <span class="dnerf">AvatarBooth</span> is a text-to-3D model. It creates an animatable 3D model with your word description. 
-          Also, it can generate customized model with 4~6 photos from your phone or a character design generated from diffusion model. 
-          You can play with any magic words to change your final character result with fixed identity.
+        <span class="dnerf">STAG4D</span> a novel framework that combines pre-trained diffusion models 
+        with dynamic 3D Gaussian splatting for high-fidelity 4D generation. Our method outperforms prior 4D generation works in rendering quality, spatial-temporal consistency, and generation robustness, setting 
+        a new state-of-the-art for 4D generation from diverse inputs, including text, image, and video. 
       </h2>
     </div>
   </div>
@@ -179,79 +187,60 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/obama.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/hilary.mp4"
-                    type="video/mp4">
-          </video>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/kobe.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/messi.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/gifs2/bird_fly_012_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/ronald.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/elsa.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/gifs2/boy_mara_mc_006_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/luke.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/superman.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/gifs2/cat-dance_012_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/aragon.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/deadpool.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/gifs2/cat_phone_lp_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/doctor.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
         <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/godfather.mp4"
-                    type="video/mp4">
-          </video>
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
         </div>
-
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
+        <div class="item item-shiba">
+          <img src="./static/gifs2/bear1_magic_compare.gif" alt="none" loop playsinline height="100%">
+        </div>
 
       </div>
     </div>
@@ -267,26 +256,20 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce AvatarBooth, a novel method for generating high-quality 3D avatars using text prompts or specific images.
-             Unlike previous approaches that can only synthesize avatars based on simple text descriptions, 
-             our method enables the creation of personalized avatars from casually captured face or body images, 
-             while still supporting text-based model generation and editing. 
-             Our key contribution is the precise avatar generation control by using dual fine-tuned diffusion models separately 
-             for the human face and body. This enables us to capture intricate details of facial appearance,
-            clothing, and accessories, resulting in highly realistic avatar generations.
+            
+            Recent progress in pre-trained diffusion models and 3D generation have spurred interest in 4D content creation. However, achieving high-fidelity 4D generation with spatial-temporal consistency remains a challenge. 
+            In this work, we propose STAG4D, a novel framework that combines pre-trained diffusion models with dynamic 3D Gaussian splatting for high-fidelity 4D generation. 
           </p>
           <p>
-            Furthermore, we introduce pose-consistent constraint to the optimization process to enhance the multi-view consistency 
-            of synthesized head images from the diffusion model and thus eliminate interference from 
-            uncontrolled human poses. In addition, we present a multi-resolution rendering strategy that 
-            facilitates coarse-to-fine supervision of 3D avatar generation, thereby enhancing the performance 
-            of the proposed system. The resulting avatar model can be further edited using additional text 
-            descriptions and driven by motion sequences.
+            Drawing inspiration from 3D generation techniques, we utilize a multi-view diffusion model to initialize multi-view images anchoring on the input video frames, where the video can be either real-world captured or generated by a video diffusion model. 
+            To ensure the temporal consistency of the multi-view sequence initialization, we introduce a simple yet effective fusion strategy to leverage the first frame as a temporal anchor in the self-attention computation. 
+            With the almost consistent multi-view sequences 
+            , we then apply the score distillation sampling to optimize the 4D Gaussian point cloud.
+            The 4D Gaussian spatting is specially crafted for the generation task, where an adaptive densification strategy is proposed to mitigate the unstable Gaussian gradient for robust optimization. 
           </p>
           <p>
-            Experiments show that <span class="dnerf">AvatarBooth</span> outperforms previous text-to-3D methods in terms of
-             rendering and geometric quality from either text prompts or specific images. 
-             The code and model will be made available upon publication.
+            Notably, the proposed pipeline does not require any pre-training or fine-tuning of diffusion networks, offering a more accessible and practical solution for the 4D generation task.
+            Extensive experiments demonstrate that our method outperforms prior 4D generation works in rendering quality, spatial-temporal consistency, and generation robustness, setting a new state-of-the-art for 4D generation from diverse inputs, including text, image, and video. 
         
           </p>
         </div>
@@ -300,7 +283,7 @@
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/1UcwHPXNK8E"
+          <iframe src="https://www.youtube.com/"
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
@@ -319,18 +302,34 @@
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Text-to-Avatar</h2>
+          <h2 class="title is-3">Video-to-4D</h2>
           <p>
-            Using <i>AvatarBooth</i> you can create high-quality avatar through a few words. 
-            The model both have a satisfying appearance and a detailed mesh.
+            Using <i>STAG4D</i>, you can create high-quality 4D content from a monocular video.
           </p>
-          <img src="./static/images/exhibit.jpg" alt="Text-to-Avatar">
+          <!--<img src="./static/images/exhibit.jpg" alt="Video-to-4D"> -->
         </div>
       </div>
 
 
 
       
+      </div>
+    </div>
+
+
+    <div class="container is-max-desktop">
+      
+      <div class="columns is-centered">
+  
+        <!-- Visual Effects. -->
+        <div class="column">
+          <video id="messi" autoplay controls muted loop playsinline>
+              <source src="./static/videos/videoto4d.mp4"
+                      type="video/mp4">
+          </video>
+        </div>
+        <!--/ Visual Effects. -->
+  
       </div>
     </div>
     <!--/ Matting. -->
@@ -343,12 +342,12 @@
         <!-- Visual Effects. -->
         <div class="column">
           <div class="content">
-            <h2 class="title is-3">Character Personalization</h2>
+            <h2 class="title is-3">Text-to-4D</h2>
             <p>
-              Another <i>AvatarBooth</i> application is that you can create your own model using your personal photos, including selfies and clothes photos. 
-              You can add any accessories or effect to your model output using simply a word description.
+              Our method is designed to be readily adaptable to text and image inputs, 
+              offering novel capabilities such as directly generating video sequences from textual descriptions or static images.
             </p>
-            <img src="./static/images/exhibit_mode23.jpg" alt="Character Personalization">
+            <!--<img src="./static/images/exhibit_mode23.jpg" alt="Video-to-4D">-->
           </div>
         </div>
         <!--/ Visual Effects. -->
@@ -356,7 +355,23 @@
         
         </div>
       </div>
-
+=
+        <div class="container is-max-desktop">
+      
+          <div class="columns is-centered">
+      
+            <!-- Visual Effects. -->
+            <div class="column">
+              <video id="messi" autoplay controls muted loop playsinline>
+                  <source src="./static/videos/textto4d.mp4"
+                          type="video/mp4">
+              </video>
+            </div>
+            <!--/ Visual Effects. -->
+      
+          </div>
+        </div>
+=
     <!-- Animation. -->
     <div class="container is-max-desktop">
       <div class="column is-centered">
@@ -364,12 +379,11 @@
         <h2 class="title is-3">Application</h2>
 
 
-        <h3 class="title is-4">FBX animation</h3>
+        <h3 class="title is-4">Multi-view&Normal Generation</h3>
         <div class="content has-text-justified">
           <p>
-            We can also animate the model by turning it into a FBX file.
-            Feel free to play with the model.
-
+            Building upon our attention mechanism, we have integrated our design with the newly introduced normal map model by Zero123++\cite{shi2023zero123++}. 
+            As far as we know, this is the first time that people can generate of coherent multiview images with corresponding normal maps.
           </p>
         </div>
       </div>
@@ -387,14 +401,14 @@
       <!-- Visual Effects. -->
       <div class="column">
         <video id="messi" autoplay controls muted loop playsinline>
-            <source src="./static/videos/messi_kicks.mp4"
+            <source src="./static/videos/pistol.mp4"
                     type="video/mp4">
         </video>
       </div>
       <!--/ Visual Effects. -->
       <div class="column">
         <video id="trump" autoplay controls muted loop playsinline>
-            <source src="./static/videos/trump_dances.mp4"
+            <source src="./static/videos/teddy.mp4"
                     type="video/mp4">
         </video>
       </div>
@@ -408,52 +422,12 @@
 
 
 
-<section class="section">
-  <div class="container is-max-desktop">
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://avatar-craft.github.io/">AvatarCraft</a> also uses NeuS for 3D representation. 
-          </p>
-
-          <p>
-            Some works model avatars with Latent-NeRF, such as <a href="https://yukangcao.github.io/DreamAvatar/">DreamAvatar</a>
-          </p>
-
-        </div>
-      </div>
-    </div>
-    <!--/ Concurrent Work. -->
-
-  </div>
-</section>
 
 <!--/TODO: insert citation. -->
 <!--TODO: modeify bibtex-->
 
-<section class="section" id="BibTeX">
 
-  <div class="container is-max-desktop content">
-
-  <h2 class="title">BibTeX</h2>
-
-    <pre><code>@inproceedings{Zeng2023AvatarBoothHA,
-  title={AvatarBooth: High-Quality and Customizable 3D Human Avatar Generation},
-  author={Yifei Zeng and Yuanxun Lu and Xinya Ji and Yao Yao and Hao Zhu and Xun Cao},
-  year={2023}
-}</code></pre>
-
- </div>
-
-</section>
 
 <footer class="footer">
   <div class="container">
